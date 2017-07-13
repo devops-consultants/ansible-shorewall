@@ -34,7 +34,7 @@ LOG_VERBOSITY={{ shorewall_log_verbosity }}
 
 LOGALLNEW=
 
-LOGFILE=/var/log/messages
+LOGFILE=/var/log/syslog
 
 LOGFORMAT="Shorewall:%s:%s:"
 
@@ -133,7 +133,8 @@ AUTOHELPERS=Yes
 
 AUTOMAKE=No
 
-BLACKLIST="NEW,INVALID,UNTRACKED"
+#BLACKLIST="NEW,INVALID,UNTRACKED"
+BLACKLIST="ALL"
 
 CHAIN_SCRIPTS=Yes
 

@@ -30,8 +30,23 @@
     - policy
     - rules
     - hosts
+    - stoppedrules
   notify: restart shorewall
   tags: shorewall
+
+- name: shorewall macro files
+  template:
+    dest: "/usr/share/shorewall/{{ item }}"
+    src: "shorewall/{{ item }}.j2"
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - macro.VXLan
+    - macro.OpenStack
+  notify: restart shorewall
+  tags: shorewall
+
 
 - name: start and enable the shorewall service
   service: name=shorewall state=started enabled=yes

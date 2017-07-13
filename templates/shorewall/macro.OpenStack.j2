@@ -1,0 +1,27 @@
+#
+# Shorewall -- /usr/share/shorewall/macro.OpenStack
+#
+# This macro handles OpenStack API traffic. 
+#
+######################################################################################
+#TARGET  SOURCE  DEST    PROTO   DPORT   SPORT   ORIGDEST        RATE    USER
+PARAM    -       -       tcp     443       # Horizon
+PARAM    -       -       tcp     5000      # Indentity
+PARAM    -       -       tcp     8774      # Compute (nova)
+PARAM    -       -       tcp     8773,8775 # Compute API (nova-api)
+PARAM    -       -       tcp     8776      # Block (cinder)
+PARAM    -       -       tcp     8777      # Ceilometer
+PARAM    -       -       tcp     9001      # Designate
+PARAM    -       -       tcp     9292      # Glance
+PARAM    -       -       tcp     9191      # Glance registry
+PARAM    -       -       tcp     9696      # Neutron
+PARAM    -       -       tcp     5900:5999 # VM Consoles
+PARAM    -       -       tcp     6080      # VNC Proxy browsers
+PARAM    -       -       tcp     6081      # VNC Proxy clients
+PARAM    -       -       tcp     6082      # VNC Proxy HTML5
+PARAM    -       -       tcp     8386      # Sahara
+PARAM    -       -       tcp     35357     # keystone admin
+PARAM    -       -       tcp     8004      # Heat
+PARAM    -       -       tcp     6000:6002 # Swift
+PARAM    -       -       tcp     8000      # Cloudformation API
+PARAM    -       -       tcp     8003      # Cloudwatch API

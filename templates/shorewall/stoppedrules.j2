@@ -1,0 +1,14 @@
+# {{ ansible_managed }}
+# Shorewall version 4 - StoppedRules File
+# 
+# For information about this file, type "man shorewall-stoppedrules"
+#
+# The manpage is also online at
+# http://www.shorewall.net/manpages/shorewall-stoppedrules.html
+#
+###############################################################################
+# ACTION    SOURCE    DEST    PROTO    DPORT    SPORT  
+#
+{% for i in shorewall_stoppedrules %}
+{{ i.action}}  {{i.source | default('-') }}  {{ i.dest | default('-') }}  {{ i.proto | default('') }}  {{ i.dport | default('') }}  {{ i.sport | default('') }}
+{% endfor %}
